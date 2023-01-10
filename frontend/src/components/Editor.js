@@ -11,6 +11,8 @@ import {
   UPDATE_FIELD_EDITOR,
 } from "../constants/actionTypes";
 
+const PlaceHolderUrl = "/placeholder.png";
+
 const mapStateToProps = (state) => ({
   ...state.editor,
 });
@@ -49,10 +51,13 @@ class Editor extends React.Component {
 
     this.submitForm = (ev) => {
       ev.preventDefault();
+      
+      // const URL =  this.props.image === "" ? PlaceHolderUrl : this.props.image;
+
       const item = {
         title: this.props.title,
         description: this.props.description,
-        image: this.props.image,
+        image: this.props.image === "" ? PlaceHolderUrl : this.props.image,
         tagList: this.props.tagList,
       };
 
